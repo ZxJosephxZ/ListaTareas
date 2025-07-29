@@ -18,4 +18,17 @@ export class App implements OnInit{
   ngOnInit(): void {
     this.listaTareas = this._tareasService.getTareas();
   }
+
+  agregarTarea()
+  {
+    this._tareasService.agregarTarea(this.nuevaTarea);
+    this.nuevaTarea = '';
+    this.listaTareas = this._tareasService.getTareas();
+  }
+  
+  eliminarTarea(index:number)
+  {
+    this._tareasService.eliminarTarea(index);
+    this.listaTareas = this._tareasService.getTareas();
+  }
 }

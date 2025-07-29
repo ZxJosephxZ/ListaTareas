@@ -1,14 +1,15 @@
 <div>
   <h2>Lista de tareas</h2>
   <ul>
-    @for(let tarea of listaTareas; let i = index)
+    @for(tarea of listaTareas; track $index)
     {
       <li>
         {{tarea}}
-        <button (click)="eliminarTarea(i)">Eliminar</button>
+        <button (click)="eliminarTarea($index)">Eliminar</button>
       </li>
+    }
       <input type="text" placeholder="Nueva tarea" [(ngModel)]="nuevaTarea">
       <button (click)="agregarTarea()">Agregar tarea</button>
-    }
+    
   </ul>
 </div>
